@@ -65,6 +65,19 @@
 			{
 				"inputs": [
 					{
+						"internalType": "uint8",
+						"name": "amount",
+						"type": "uint8"
+					}
+				],
+				"name": "allocateTokensForSale",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
@@ -133,6 +146,19 @@
 			},
 			{
 				"inputs": [],
+				"name": "getAvailableTokens",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "tokensLeftForSale",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "icoEnded",
 				"outputs": [
 					{
@@ -190,8 +216,47 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "uint8",
+						"name": "tokensWanted",
+						"type": "uint8"
+					}
+				],
+				"name": "placeBid",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "botAddress",
+						"type": "address"
+					}
+				],
+				"name": "redirectToFakeNFT",
+				"outputs": [],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_treasury",
+						"type": "address"
+					}
+				],
+				"name": "setTreasury",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -360,11 +425,11 @@
 			]
 		},
 		"contracts/ico.sol": {
-			"keccak256": "0x2bf5a7530e7d72b1b942c36facd9c48e9caac1b3964f224d8dcd6626870e5b9c",
+			"keccak256": "0x184402787fd70d23774efb73858c7de84dd692db40588eb0c4061cf4f731f3ae",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://2c9104cf0cbcd3a663b7b1515e69621973598e9a8d54d2e4f72515d79126988d",
-				"dweb:/ipfs/QmRy6ig7yooRKuizrTzXY4CjsG5fDU8xQdvyV43jhnR7UP"
+				"bzz-raw://97e135f0a7f7a6c39a85d798611b2df9dc7309b93f84976de17ebe45eaae0984",
+				"dweb:/ipfs/QmSxi1Mg1JYznpE5L3akahzvaTrd5ZMjPfjJSu4CSVwgHc"
 			]
 		}
 	},

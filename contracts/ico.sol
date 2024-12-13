@@ -32,4 +32,48 @@ contract InitialCoinOffering is Ownable {
         icoEnded = false;
     }
 
+    // Sets the treasury address to receive funds from the token sale.
+    function setTreasury(address _treasury) external onlyOwner {
+        treasury = _treasury;
+    }
+
+    // Allocates amount% of the total token supply for the ICO.
+    function allocateTokensForSale(uint8 amount) external onlyOwner {
+        require(amount > 0 && amount < 100);
+        uint256 temp = (amount/100) * totalSupply;
+        totalSupply -= temp;
+        tokensForSale += temp;
+    }
+
+    function getAvailableTokens() public view returns(uint256 tokensLeftForSale) {
+        return tokensForSale;
+    }
+
+    function placeBid(uint8 tokensWanted) public payable {
+        require(tokensWanted < tokensForSale, "Bid amount is greater than available number of tokens for sale.");
+        require(msg.value > 1 ether, "You have to place a bid of 1 ETH minimum");
+        require(block.timestamp < endTime, "ICO has ended");
+        require(msg.value > 0, "Bid must be greater than 0");
+         if (bids[msg.sender].amount == 0) {
+            bidders.push(msg.sender);  // Add new bidder
+        }
+        bids[msg.sender].amount += msg.value;  // Update bid amount
+    }
+
+    function checkForBotActivity(address bidder) internal view returns(bool status) {
+
+    }
+
+    function detectBot(address bidder) internal {
+        if (checkForBotActivity(bidder)) {
+            isBot[bidder] = true;
+        }
+    }
+
+    function redirectToFakeNFT(address botAddress) external view {
+        require(isBot[botAddress], "Not flagged as a bot");
+        // Logic to redirect bot to botRedirectContract
+    }
+
+
 }
