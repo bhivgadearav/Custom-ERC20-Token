@@ -16,6 +16,11 @@
 						"internalType": "string",
 						"name": "symbol",
 						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "nonpayable",
@@ -529,6 +534,7 @@
 				"constructor": {
 					"details": "Initializes the token ",
 					"params": {
+						"amount": "Inital supply of tokens minted to deployer's address",
 						"name": "Token name",
 						"symbol": "Token symbol"
 					}
@@ -652,11 +658,11 @@
 			]
 		},
 		"contracts/CustomToken.sol": {
-			"keccak256": "0x622bc8072d2e5d11ea0220a82a6da68e78a50beb1707169ed25d04b9db648b2a",
+			"keccak256": "0x94254af4c5863b7e62c9e64a8e195d757cc3312936d86aa354d45d7a6414f704",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://4b95ae0d160842e8e5ed7884fd79bd8a9ebf6e64b6587b6392f94b39e5b3b0fc",
-				"dweb:/ipfs/QmToaDtqCgPC54gNe6NGeGyCJKAUxUrNwgRdg4fcNACqnj"
+				"bzz-raw://214246c7408779a50a52dbd5a725aaf4d4d9ea303784103df9e18c7e3afcfe23",
+				"dweb:/ipfs/QmYYXJwvGpkx9JBAbSRvqGHHArghCBcEMdyzKq6Abga7ZG"
 			]
 		}
 	},

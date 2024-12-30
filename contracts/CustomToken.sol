@@ -11,10 +11,15 @@ contract CustomToken is ERC20, Ownable {
     /// @dev Initializes the token 
     /// @param name Token name
     /// @param symbol Token symbol
+    /// @param amount Inital supply of tokens minted to deployer's address
     constructor(
         string memory name,
-        string memory symbol
-    ) ERC20(name, symbol) Ownable(msg.sender) {}
+        string memory symbol,
+        uint256 amount
+    ) ERC20(name, symbol) Ownable(msg.sender) {
+        if (amount == 0) amount = 100;
+        _mint(msg.sender, amount);
+    }
 
     /// @notice Creates new tokens
     /// @dev Only callable by contract owner
