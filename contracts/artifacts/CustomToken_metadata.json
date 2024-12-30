@@ -16,16 +16,6 @@
 						"internalType": "string",
 						"name": "symbol",
 						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "_imageURI",
-						"type": "string"
-					},
-					{
-						"internalType": "uint256",
-						"name": "_amount",
-						"type": "uint256"
 					}
 				],
 				"stateMutability": "nonpayable",
@@ -302,19 +292,6 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "imageURI",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -361,19 +338,6 @@
 			{
 				"inputs": [],
 				"name": "renounceOwnership",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "string",
-						"name": "newImageURI",
-						"type": "string"
-					}
-				],
-				"name": "setImageURI",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -472,7 +436,7 @@
 			}
 		],
 		"devdoc": {
-			"details": "Extends ERC20 functionality with image metadata and minting/burning capabilities",
+			"details": "Extends ERC20 functionality with minting/burning capabilities",
 			"errors": {
 				"ERC20InsufficientAllowance(address,uint256,uint256)": [
 					{
@@ -563,10 +527,8 @@
 					}
 				},
 				"constructor": {
-					"details": "Initializes the token with initial supply and image URI",
+					"details": "Initializes the token ",
 					"params": {
-						"_amount": "Initial supply (before decimals)",
-						"_imageURI": "Token image URI",
 						"name": "Token name",
 						"symbol": "Token symbol"
 					}
@@ -590,12 +552,6 @@
 				"renounceOwnership()": {
 					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby disabling any functionality that is only available to the owner."
 				},
-				"setImageURI(string)": {
-					"details": "Only callable by contract owner",
-					"params": {
-						"newImageURI": "New URI to set for the token image"
-					}
-				},
 				"symbol()": {
 					"details": "Returns the symbol of the token, usually a shorter version of the name."
 				},
@@ -612,12 +568,7 @@
 					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
 				}
 			},
-			"stateVariables": {
-				"imageURI": {
-					"details": "This can be updated by the contract owner"
-				}
-			},
-			"title": "CustomToken - An ERC20 token with image URI support",
+			"title": "CustomToken - An ERC20 token ",
 			"version": 1
 		},
 		"userdoc": {
@@ -629,14 +580,8 @@
 				"constructor": {
 					"notice": "Contract constructor"
 				},
-				"imageURI()": {
-					"notice": "Storage for token image URI"
-				},
 				"mint(address,uint256)": {
 					"notice": "Creates new tokens"
-				},
-				"setImageURI(string)": {
-					"notice": "Updates the token's image URI"
 				}
 			},
 			"version": 1
@@ -707,11 +652,11 @@
 			]
 		},
 		"contracts/CustomToken.sol": {
-			"keccak256": "0xf5cbc12845cc187ac327a9a7a18ee44079e16ee5bbf2a34b064911915d314195",
+			"keccak256": "0x622bc8072d2e5d11ea0220a82a6da68e78a50beb1707169ed25d04b9db648b2a",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://5738b05672bbb6deb129e22fdb27793ad8a082719c09cce493dda82a1bf5a13f",
-				"dweb:/ipfs/QmdZ5GLQdXi7fyACg9UwqqRmqGwjSvnUktcTAj1rG2MB9F"
+				"bzz-raw://4b95ae0d160842e8e5ed7884fd79bd8a9ebf6e64b6587b6392f94b39e5b3b0fc",
+				"dweb:/ipfs/QmToaDtqCgPC54gNe6NGeGyCJKAUxUrNwgRdg4fcNACqnj"
 			]
 		}
 	},

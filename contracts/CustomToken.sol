@@ -4,35 +4,17 @@ pragma solidity ^0.8.20;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-/// @title CustomToken - An ERC20 token with image URI support
-/// @dev Extends ERC20 functionality with image metadata and minting/burning capabilities
+/// @title CustomToken - An ERC20 token 
+/// @dev Extends ERC20 functionality with minting/burning capabilities
 contract CustomToken is ERC20, Ownable {
-    /// @notice Storage for token image URI
-    /// @dev This can be updated by the contract owner
-    string public imageURI;
-    
     /// @notice Contract constructor
-    /// @dev Initializes the token with initial supply and image URI
+    /// @dev Initializes the token 
     /// @param name Token name
     /// @param symbol Token symbol
-    /// @param _imageURI Token image URI
-    /// @param _amount Initial supply (before decimals)
     constructor(
         string memory name,
-        string memory symbol,
-        string memory _imageURI,
-        uint256 _amount
-    ) ERC20(name, symbol) Ownable(msg.sender) {
-        if (bytes(_imageURI).length == 0) revert("Empty URI");
-        imageURI = _imageURI;
-        
-        uint8 decimalsValue = decimals();
-        if (_amount > type(uint256).max / (10 ** decimalsValue)) {
-            revert("Amount too large");
-        }
-        
-        _mint(msg.sender, _amount * 10 ** decimalsValue);
-    }
+        string memory symbol
+    ) ERC20(name, symbol) Ownable(msg.sender) {}
 
     /// @notice Creates new tokens
     /// @dev Only callable by contract owner
@@ -50,13 +32,5 @@ contract CustomToken is ERC20, Ownable {
     function burn(uint256 amount) external {
         if (amount == 0) revert("Zero amount");
         _burn(msg.sender, amount);
-    }
-
-    /// @notice Updates the token's image URI
-    /// @dev Only callable by contract owner
-    /// @param newImageURI New URI to set for the token image
-    function setImageURI(string memory newImageURI) external onlyOwner {
-        if (bytes(newImageURI).length == 0) revert("Empty URI");
-        imageURI = newImageURI;
     }
 }
